@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CalculadoraJavaScript</title>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <style>
+           
+             .mb-0{
+                margin-top: 10px !important;
+             }
+
+             .mt-0 {
+                margin-top: -28px !important; 
+                /* margin-top: 50px !important; */
+             }
+
+             .ms-1 {
+                margin-left: 2px !important;
+             }
+
+             .p-0 {
+                padding: 7px !important;
+             }
+
+             .btn {
+                border-radius: 18px;
+             }
+
+           
+             .w-0 {
+                width: 250px !important;
+             }
+
+             .h-75 {
+                height: 500px !important;
+             }
+
+             input {
+                margin-top: -60px;
+                text-align: end;
+                color: #ebeaf0;
+                border: none;
+                font-size: 50px;
+                
+             }
+             
+        </style>
+    </head>
+    <body style="background-color: #ebeaf0;">
+
+       <div class="h-75 w-0 bg-dark  position-absolute top-50 start-50 translate-middle shadow-lg rounded-end-5 rounded-start-5">
+            <img src="imagens/icone-gravador.png" class="w-25">
+           
+            
+
+        <div class="position-relative top-50 start-50 translate-middle ms-1 mt-0 p-0 h-50">
+
+           
+            <div class="d-flex flex-row mb-0" >
+                <input id="resultado" type="text" class="w-100 me-2 bg-dark" placeholder="0" disabled="disabled">
+            </div>
+
+            <div class="d-flex flex-row mb-0" >
+                <button onclick="calcular('acao', 'c')" type="button" class="btn btn-lg btn-secondary w-50 me-1">C</button>
+                <button onclick="calcular('acao', '/')" type="button" class="btn btn-lg btn-warning   w-25 me-1">/</button>
+                <button onclick="calcular('acao', '*')" type="button" class="btn btn-lg btn-warning   w-25 me-1">X</button>
+            </div>
+
+            <div class="d-flex flex-row mb-0" >
+                <button onclick="calcular('valor', 1)" type="button" class="btn btn-lg btn-secondary w-25 me-1">1</button>
+                <button onclick="calcular('valor', 2)" type="button" class="btn btn-lg btn-secondary w-25 me-1">2</button>
+                <button onclick="calcular('valor', 3)" type="button" class="btn btn-lg btn-secondary w-25 me-1">3</button>
+                <button onclick="calcular('acao', '-')" type="button" class="btn btn-lg btn-warning   w-25 me-1">-</button>
+            </div>
+
+            <div class="d-flex flex-row mb-0" >
+                <button onclick="calcular('valor', 4)" type="button" class="btn btn-lg btn-secondary w-25 me-1">4</button>
+                <button onclick="calcular('valor', 5)" type="button" class="btn btn-lg btn-secondary w-25 me-1">5</button>
+                <button onclick="calcular('valor', 6)" type="button" class="btn btn-lg btn-secondary w-25 me-1">6</button>
+                <button onclick="calcular('acao', '+')" type="button" class="btn btn-lg btn-warning   w-25 me-1">+</button>
+                
+            </div>
+
+            <div class="d-flex flex-row mb-0" >
+                <button onclick="calcular('valor', 7)" type="button" class="btn btn-lg btn-secondary w-25 me-1">7</button>
+                <button onclick="calcular('valor', 8)" type="button" class="btn btn-lg btn-secondary w-25 me-1">8</button>
+                <button onclick="calcular('valor', 9)" type="button" class="btn btn-lg btn-secondary w-25 me-1">9</button>
+                <button onclick="calcular('acao', '%')" type="button" class="btn btn-lg btn-warning   w-25 me-1">%</button>
+            </div>
+
+
+            <div class="d-flex flex-row mb-0" >
+                <button onclick="calcular('valor', 0)" type="button" class="btn btn-lg btn-secondary w-50 me-1">0</button>   
+                <button onclick="calcular('acao', '.')"type="button" class="btn btn-lg btn-secondary w-25 me-1">.</button>
+                <button onclick="calcular('acao', '=')"type="button" class="btn btn-lg btn-warning   w-25 me-1">=</button>
+               
+            </div>
+
+            <script>
+                  function calcular(tipo,valor){
+                     
+                    
+                        if(tipo === 'acao'){
+                        
+                            if(valor === 'c'){
+                                document.querySelector('#resultado').value = ''
+                            }if(valor === '+' || valor === '-' || valor === '*' ||
+                                valor === '/' || valor === '%' || valor === '.'){
+                                document.querySelector('#resultado').value += valor
+                            }else if(valor === '='){
+                                const valor_res = eval(document.querySelector('#resultado').value)
+                                document.querySelector('#resultado').value = valor_res
+                            }
+                                
+                        }else{
+                            document.querySelector('#resultado').value += valor
+                        }
+                       
+                          
+                  }
+            </script>
+
+        </div>    
+            
+       </div>
+     
+    </body>
+</html>
